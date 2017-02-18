@@ -1,0 +1,14 @@
+to sem zvedavej, funguje to <i>{{ jak_to_funguje }}</i>
+
+<hr>
+
+<form action="/template/" method="get">
+    <input type="text" name="q">
+    <input type="submit" value="Search">
+</form>
+
+{% if q %}
+    neco tu je: <b>{{ q }}</b>
+{% else %}
+    nic tu neni
+{% endif %}
