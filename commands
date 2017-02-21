@@ -1,0 +1,15 @@
+
+# zkoukne jestli jsou spravne nastaveny aplikace
+python manage.py check
+
+# vytvoreni migracniho skriptu, kde * je nazev
+# aplikace
+python manage.py makemigrations *
+# tohle mi vytvori 0001_initial.py a v nem migracni skript na tvorbu tabulek
+
+# todle zatim uplne nechapu. vyleje mi to sqlko na vytvoreni tabulky.
+# je dost mozne, ze mi to vytvori databazi.
+python manage.py sqlmigrate aplikace 0001
+
+# pak ale nechapu co dela toto, ale to nevadi, na to prijdu
+python manage.py migrate
