@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import NameForm
+from .models import UserForm
 from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.template import Context
@@ -33,3 +34,7 @@ def form_result(request):
         context['message'] = request.POST['message']
     c = Context(context)
     return HttpResponse(t.render(c))
+
+
+def custom_form(request):
+    return render(request, 'custom_form.html', {'form': UserForm()})

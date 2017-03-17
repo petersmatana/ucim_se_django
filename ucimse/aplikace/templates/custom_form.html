@@ -1,0 +1,6 @@
+<h1>custom form!</h1>
+<form action="/form_result/" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Submit" />
+</form>
