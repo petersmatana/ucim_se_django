@@ -37,4 +37,36 @@ def form_result(request):
 
 
 def custom_form(request):
-    return render(request, 'custom_form.html', {'form': UserForm()})
+    print 'custom_form'
+    form = None
+    valid = None
+
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            valid = 'je validni'
+            post = form.save(commit=False)
+            # print 'nazev = {0}, email = {1}'.format(post.nazev, post.email)
+
+            return render(request, 'processing_custom_form.html', {})
+        else:
+            valid = 'neni validni'
+    else:
+        form = UserForm()
+
+    data = {
+        'form': form,
+        'valid': valid,
+    }
+
+    return render(request, 'custom_form.html', data)
+
+
+def processing_custom_form(request):
+    print 'processing_custom_form'
+    
+    data = {
+        'req': request.POST,
+    }
+
+    return render(request, 'processing_custom_form.html', data)

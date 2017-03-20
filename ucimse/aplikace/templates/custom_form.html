@@ -1,6 +1,8 @@
 <h1>custom form!</h1>
-<form action="/form_result/" method="post">
+<form action="/processing_custom_form/" method="post">
     {% csrf_token %}
-    {{ form.as_table }}
+    {{ form }}
     <input type="submit" value="Submit" />
 </form>
+<hr/>
+{{ valid }}
